@@ -12,11 +12,14 @@ const tab = document.querySelector(".tab");
 
 
 // 初始化: renderData 函式
-let data =[
-  // {
-  //   content: "待辦事項"
-  // }
-];
+// let data =[
+//   // {
+//   //   content: "待辦事項"
+//   // }
+// ];
+
+//localStorage: 從瀏覽器讀取之前存的資料，沒有的話就用空陣列
+let data = JSON.parse(localStorage.getItem("todoData")) || [];
 
 let tabState = `全部`;
 
@@ -57,6 +60,9 @@ function renderData(){
 
   listFooter.innerHTML = `<p>${undone.length}個待完成項目</p>
   <a href="#" class="clear">清除已完成項目</a>`
+
+ ////每次畫面更新，就把最新的資料存進瀏覽器
+  localStorage.setItem("todoData", JSON.stringify(data));
 }
 
 
