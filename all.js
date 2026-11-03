@@ -139,3 +139,5 @@ tab.addEventListener("click",function(e){
 
   renderData();
 })
+
+renderData();
